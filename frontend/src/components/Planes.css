@@ -1,0 +1,30 @@
+h1,
+h2,
+thead {
+  font-family: "DM Serif Display";
+}
+
+tbody {
+  font-family: "DM Sans";
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.plane-container {
+  padding: 40px;
+  padding-top: 0px;
+  width: 100%;
+  clear: both;
+}
+
+.delete-button {
+  background-color: red;
+  color: white;
+}

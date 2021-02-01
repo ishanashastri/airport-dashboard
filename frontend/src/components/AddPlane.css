@@ -1,0 +1,36 @@
+h1,
+h2 {
+  font-family: "DM Serif Display";
+}
+
+label {
+  font-style: italic;
+  font-family: "DM Sans";
+}
+
+input {
+  padding: 10px;
+  margin: 10px 0;
+  font-family: "DM Sans";
+}
+
+button {
+  padding: 10px;
+  background-color: skyblue;
+  border-width: 0px;
+  font-family: "DM Sans";
+  border-radius: 5px;
+  color: black;
+  font-weight: 600;
+}
+.form-container {
+  padding: 40px;
+  padding-top: 0px;
+  width: 500px;
+  clear: both;
+}
+
+.form-container input {
+  width: 100%;
+  clear: both;
+}

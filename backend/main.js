@@ -1,13 +1,13 @@
-const express = require('express');
-const path = require('path');
-const bodyParser = require('body-parser');
+const express = require("express");
+const path = require("path");
+const bodyParser = require("body-parser");
 const app = express();
-require('dotenv').config({path: '../.env'});
+require("dotenv").config({ path: "../.env" });
 const port = 8081;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
 const crudHelper = require("./server/helpers/crudHelper");
 
@@ -15,35 +15,40 @@ const crudHelper = require("./server/helpers/crudHelper");
 const database_name = process.env.CLOUDANT_DB_NAME;
 
 // Post request to create a plane's status
-app.post('/api/planestatus/create', (req, res) => {
-  crudHelper.createPlaneStatus(database_name, req.body)
-    .then(result => res.send(result))
-    .catch(err => console.log(err.description));
+app.post("/api/planestatus/create", (req, res) => {
+  crudHelper
+    .createPlaneStatus(database_name, req.body)
+    .then((result) => res.send(result))
+    .catch((err) => console.log(err.description));
 });
 
 // Get request to read a plane's status
-app.get('/api/planestatus/read', (req, res) => {
+app.get("/api/planestatus/read", (req, res) => {
   crudHelper.readPlaneStatus(database_name).then(function (result) {
     res.send(result);
   });
 });
 
 // Post request to update a plane's status
-/*
-* Fill this section out
-*/
+app.post("/api/planestatus/update", (req, res) => {
+  crudHelper
+    .updatePlaneStatus(database_name, req.body)
+    .then((result) => res.send(result))
+    .catch((err) => console.log(err.description));
+});
 
 // Post request to delete a plane's status
-/*
-* Fill this section out
-*/
+app.post("/api/planestatus/delete", (req, res) => {
+  crudHelper
+    .deletePlaneStatus(database_name, req.body)
+    .then((result) => res.send(result))
+    .catch((err) => console.log(err.description));
+});
 
-
-app.get('/', (req,res) => {
-  res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
 });
 
 app.listen(port, function () {
-  console.log('Server listening on port ' + port);
+  console.log("Server listening on port " + port);
 });
-
