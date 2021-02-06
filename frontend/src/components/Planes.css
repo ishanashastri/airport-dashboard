@@ -15,6 +15,7 @@ td {
   border-collapse: collapse;
   padding: 10px;
   border-radius: 2px;
+  text-align: center;
 }
 
 .plane-container {
@@ -26,5 +27,16 @@ td {
 
 .delete-button {
   background-color: red;
-  color: white;
+  color: black;
+}
+
+.delete-button:hover {
+  background-color: #ff6e6b;
+}
+
+.edit-status {
+  border: none;
+  font-size: 16px;
+  text-align: center;
+  padding: 0px;
 }

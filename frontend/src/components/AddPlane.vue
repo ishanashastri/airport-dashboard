@@ -5,7 +5,7 @@
 
 <template>
 
-  <div class="container">
+  <div class="container scroll-to-me">
     <div class="row">
         <div class="col-md-7 mrgnbtm">
         <h1>Plane Dashboard</h1>
@@ -26,16 +26,19 @@
                             <input type="text" class="form-control" v-model="destination" placeholder="BWI"  name="destination" id="destination" />
                         </div>
                         <div class="form-group col-md-6">
-                            <label htmlFor="exampleInputPassword1">Status </label>
-                            <!-- <input list="status">
-                            <datalist class="form-control" name="status" id="status">
-                                <option value="DELAYED"/>
-                                <option value="CANCELLED"/>
-                                <option value="ON TIME"/>
-                                <option value="BOARDING"/>
-                                <option value="GATE CLOSING"/>
-                            </datalist> -->
-                            <input type="text" class="form-control" v-model="status" placeholder="DELAYED" name="status" id="status" />
+                            <label htmlFor="exampleInputPassword1">Status </label> <br>
+                            <select class="form-control status-dropdown" v-model="status">
+                                <option value="Select" :selected="true">Select</option>
+                                <option value="ARRIVED">ARRIVED</option>
+                                <option value="BOARDING">BOARDING</option>
+                                <option value="CANCELLED">CANCELLED</option>
+                                <option value="DELAYED">DELAYED</option>c
+                                <option value="GATE CLOSING">GATE CLOSING</option>
+                                <option value="LANDED">LANDED</option>
+                            </select>
+                            <br>
+
+                            <!-- <input type="text" class="form-control" v-model="status" placeholder="DELAYED" name="status" id="status" /> -->
                         </div>
                     </div>
                     <button type="button" @click='addPlane()' class="btn btn-danger">Create</button>

@@ -10,7 +10,8 @@
   "dependencies": {
     "@innologica/vue-dropdown-menu": "^0.1.4",
     "core-js": "^3.8.3",
-    "vue": "^2.6.12"
+    "vue": "^2.6.12",
+    "vuetable-2": "^2.0.0-beta.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.11",

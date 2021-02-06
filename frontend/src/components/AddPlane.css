@@ -3,6 +3,11 @@ h2 {
   font-family: "DM Serif Display";
 }
 
+h1 {
+  padding: 40px;
+  margin: 0px;
+}
+
 label {
   font-style: italic;
   font-family: "DM Sans";
@@ -23,6 +28,11 @@ button {
   color: black;
   font-weight: 600;
 }
+
+button:hover {
+  background-color: lightblue;
+}
+
 .form-container {
   padding: 40px;
   padding-top: 0px;
@@ -33,4 +43,11 @@ button {
 .form-container input {
   width: 100%;
   clear: both;
+}
+
+.status-dropdown {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 105%;
 }

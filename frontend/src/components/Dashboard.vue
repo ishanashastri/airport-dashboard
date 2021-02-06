@@ -1,16 +1,17 @@
 <template>
   <div class="dashboard">
     <Header />
-    <div class="container mrgnbtm">
+    <div class="container mrgnbtm scroll-to-me">
           <div class="row">
             <div class="col-md-8">
                 <AddPlane @addPlane="addPlane($event)" />
             </div>
+              <div class="col-md-8">
+                <Planes @deletePlane="deletePlane($event)" @updatePlane="updatePlane($event)" v-if="planes.length > 0" :planes="planes" />
+            </div>
           </div>
     </div>
-    <div class="row mrgnbtm">
-        <Planes @deletePlane="deletePlane($event)" @updatePlane="updatePlane($event)" v-if="planes.length > 0" :planes="planes" />
-    </div>
+    
   </div>
 </template>
 
@@ -35,6 +36,7 @@ export default {
     getAllPlanes() {
       getAllPlanes().then(response => {
         console.log(response)
+        response.sort((a, b) => (a.planeObject.plane_number > b.planeObject.plane_number) ? 1 : -1)
         this.planes = response
         this.numberOfPlanes = this.planes.length
       })
