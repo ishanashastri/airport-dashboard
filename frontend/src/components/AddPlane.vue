@@ -8,7 +8,7 @@
   <div class="container scroll-to-me">
     <div class="row">
         <div class="col-md-7 mrgnbtm">
-        <h1>Plane Dashboard</h1>
+        <h1>Plane Dashboard ✈️</h1>
             <div class="form-container"> 
                 <h2>Add Plane</h2>
                 <form>
@@ -28,7 +28,6 @@
                         <div class="form-group col-md-6">
                             <label htmlFor="exampleInputPassword1">Status </label> <br>
                             <select class="form-control status-dropdown" v-model="status">
-                                <option value="Select" :selected="true">Select</option>
                                 <option value="ARRIVED">ARRIVED</option>
                                 <option value="BOARDING">BOARDING</option>
                                 <option value="CANCELLED">CANCELLED</option>

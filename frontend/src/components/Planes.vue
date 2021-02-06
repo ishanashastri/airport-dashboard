@@ -20,9 +20,8 @@
                   <td>{{ item.planeObject.plane_number }}</td>
                   <td>{{ item.planeObject.departure }}</td>
                   <td>{{ item.planeObject.destination }}</td>
-                  <!-- <td v-if="isEdit"> 
-                    <select v-model="status">
-                        <option value="Select" >Select</option>
+                  <td v-if="isEdit && editPlane._id === item._id"> 
+                    <select class="form-control" v-model="newStatus" >
                         <option value="ARRIVED">ARRIVED</option>
                         <option value="BOARDING">BOARDING</option>
                         <option value="CANCELLED">CANCELLED</option>
@@ -30,21 +29,12 @@
                         <option value="GATE CLOSING">GATE CLOSING</option>
                         <option value="LANDED">LANDED</option> 
                     ></select></td>
-                    <td v-if="isEdit"><button @click="updatePlane(item)">Save</button> <button @click="toggleEdit(item)"  class="delete-button" >Cancel</button> </td> -->
 
-                    <!-- <td v-else> -->
-                    <td>
-                        <input ref="focus"
-                        class="edit-status"
-                        v-if="item"
-                        v-model="item.planeObject.status"
-                        @blur="item.edit = false; $emit('updatePlane', item)"
-                        v-focus
-                        >
-                        <!-- {{ item.planeObject.status }} -->
+                    <td v-else>
+                        {{ item.planeObject.status }}
                         </td>
-                <!-- <td><button @click="toggleEdit(item)">Update</button> <button @click="deletePlane(item)" class="delete-button" >Delete</button></td> -->
-                <td><button @click="deletePlane(item)" class="delete-button" >Delete</button></td>
+                <td v-if="isEdit && editPlane._id === item._id"><button @click="updatePlane(item, newStatus)" class="save-button">Save</button> <button @click="toggleEdit(item)"  class="delete-button" >Cancel</button> </td>
+                <td v-else><button @click="toggleEdit(item)">Update</button> <button @click="deletePlane(item)" class="delete-button" >Delete</button></td>
 
               </tr>
             </tbody>
@@ -57,12 +47,7 @@
 </template>
 
 <script>
-// import Vuetable from 'vuetable-2'
-
     export default {
-//          components: {
-//     Vuetable
-//   },
         name: 'planes',
         data() {
             return {
@@ -87,7 +72,7 @@
                 this.isEdit = !this.isEdit
                 this.editPlane=item
             },
-            updatePlane(data){
+            updatePlane(data, newStatus){
                 const payload = {
                     _id: data._id,
                     _rev: data._rev,
@@ -95,9 +80,11 @@
                         plane_number: data.planeObject.plane_number,
                         departure: data.planeObject.departure,
                         destination: data.planeObject.destination,
+                        status: newStatus,
                     }
                 }
                 this.$emit('updatePlane', payload)
+                this.isEdit = false
             },
             deletePlane(data) {
                 const payload = {

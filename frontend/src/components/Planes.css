@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text&display=swap");
+
 h1,
 h2,
 thead {
@@ -32,6 +35,14 @@ td {
 
 .delete-button:hover {
   background-color: #ff6e6b;
+}
+
+.save-button {
+  background-color: lightgreen;
+}
+
+.save-button:hover {
+  background-color: greenyellow;
 }
 
 .edit-status {
